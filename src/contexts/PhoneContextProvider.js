@@ -7,13 +7,6 @@ const PhoneContextProvider = ({ children }) => {
   const [calling, setCalling] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState([]);
 
-  const addDigit = (digit) => {
-    if (phoneNumber.length === 9) {
-      return;
-    }
-    setPhoneNumber([...phoneNumber, digit]);
-  };
-
   const removeLastDigit = () => {
     setPhoneNumber([...phoneNumber].slice(0, phoneNumber.length - 1));
   };
@@ -43,7 +36,6 @@ const PhoneContextProvider = ({ children }) => {
       value={{
         calling,
         phoneNumber,
-        addDigit,
         removeLastDigit,
         resetNumber,
         call,
