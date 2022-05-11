@@ -1,3 +1,8 @@
 # Testing teléfono
 
-Aquí tienes la aplicación del teléfono funcionando. Testéala y consigue como mínimo un 80% de coverage de statements.
+Capa de Datos:
+Numbers => Display (input)
+Estado en llamada
+
+set to Calling /set to not calling
+Numbers
