@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { AddDigitActionCreator } from "../../redux/feature/phoneSlice";
+import PhoneContext from "../../contexts/PhoneContext";
+import { addDigitActionCreator } from "../../redux/feature/phoneSlice";
 import Key from "../Key/Key";
 
-const Keyboard = ({ removeLastDigit, calling }) => {
+const Keyboard = () => {
+  const { removeLastDigit, calling } = useContext(PhoneContext);
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const dispatch = useDispatch();
-  const addDigit = () => {
-    dispatch(AddDigitActionCreator());
-  };
 
   return (
     <ol className="keyboard">
@@ -16,7 +16,7 @@ const Keyboard = ({ removeLastDigit, calling }) => {
           key={number}
           text={number}
           disabled={calling}
-          actionOnClick={() => addDigit(number)}
+          actionOnClick={() => dispatch(addDigitActionCreator(number))}
         />
       ))}
       <Key

@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import PhoneContext from "../../contexts/PhoneContext";
+import { useSelector } from "react-redux";
 
 const Display = () => {
-  const { phoneNumber } = useContext(PhoneContext);
+  const { phoneNumber } = useSelector((state) => state.phone);
+
   return <span className="number">{phoneNumber}</span>;
 };
 

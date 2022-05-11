@@ -8,12 +8,12 @@ const phoneSlice = createSlice({
   },
 
   reducers: {
-    addDigit: (state, action) => ({
-      ...state,
-      phoneNumber: [...state.phoneNumber, action.payload],
+    addDigit: (phone, action) => ({
+      ...phone,
+      phoneNumber: [...phone.phoneNumber, action.payload],
     }),
   },
 });
 
-export const { addDigit: AddDigitActionCreator } = phoneSlice.actions;
+export const { addDigit: addDigitActionCreator } = phoneSlice.actions;
 export default phoneSlice.reducer;
