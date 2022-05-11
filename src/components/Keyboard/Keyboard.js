@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import PhoneContext from "../../contexts/PhoneContext";
-import { addDigitActionCreator } from "../../redux/feature/phoneSlice";
+import {
+  addDigitActionCreator,
+  removeLastDigitActionCreator,
+} from "../../redux/feature/phoneSlice";
 import Key from "../Key/Key";
 
 const Keyboard = () => {
-  const { removeLastDigit, calling } = useContext(PhoneContext);
+  const { calling } = useContext(PhoneContext);
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const dispatch = useDispatch();
 
@@ -22,7 +25,7 @@ const Keyboard = () => {
       <Key
         text="delete"
         big={true}
-        actionOnClick={removeLastDigit}
+        actionOnClick={() => dispatch(removeLastDigitActionCreator())}
         disabled={calling}
       />
     </ol>
